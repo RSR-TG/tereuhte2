@@ -18,23 +18,25 @@ from tg_bot.modules.helper_funcs.chat_status import is_user_admin
 from tg_bot.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
-Hi...I'm here to help you manage your groups! Hit /help to find out more about how to use me to my full potential.
+Chibai le...keihi Telegram group manager Bot ka nia,zangkhai zawk a group enkawlna lam a pui thei tu che ka ni e
 
-Join my Group @rsrtginfo to get information on all the latest updates.
+@rsrtginfo 👈 tih hi click la join rawh,siamthat ka nih hun ah te i hriat theih nan leh keimah a hriat duh i neih te i zawh theih nan.
 
-Min hmandan tur hi English vek a hrilhfiah anih avang hian harsatna i neih theih avangin a chung a  𝗿𝘀𝗿𝘁𝗴𝗶𝗻𝗳𝗼  tih hi click la join rawh,harsatna te i thlen thei ang,chuan /help tih hi click la ka hnathawh theih te i chhiar thei ang.
+/help 👈 tih hi i click leh chuan ka hnathawh theih te i hrethei ang
+
+Hnathawk tur a min duh na group ah khan min add la admin ah min dah la chuan min siamrem dan ang ang in hna ka thawk thei ang.
 
 """
 
 
 HELP_STRINGS = """
 
-Hello! my name is *{}*.
+Chibai! Ka hming chu *{}* anie.
 
-*Main* available commands:
- - /start: Start the bot...
- - /help: help....
- - /donate: To find out more about donating!
+*Min kaihhruaina pawimawh te:
+ - /start: Min tih nun na'n.
+ - /help: Ka hnathawh theih i hriat theihna'n.
+ - /donate: Ka nun zel theih nan a thilpek i pek theihna'n.
  - /settings:
    ◔ in PM: will send you your settings for all supported modules.
    ◔ in a Group: will redirect you to pm, with all that chat's settings.
