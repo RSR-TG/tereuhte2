@@ -38,16 +38,14 @@ Chibai! Ka hming chu *{}* anie.
  - /help: Ka hnathawh theih i hriat theihna'n.
  - /donate: Ka nun zel theih nan a thilpek i pek theihna'n.
  - /settings:
-   ◔ in PM: will send you your settings for all supported modules.
-   ◔ in a Group: will redirect you to pm, with all that chat's settings.
+   ◔ Private ah: Module support zawng zawng setting pek ini ang.
+   ◔ Group ah: Private ah chat setting i khawih thei ang.
 
 {}
-All commands can be used with the following: / or !
+Kaihhruaina zawng zawng hi / emaw ! a bultan tur ani
 """.format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "If you have any bugs or questions on how to use me, have a look at @mizolibrary or @rsrtginfo.")
 
-DONATE_STRING = """Heya, glad to hear you want to donate!
-It took lots of work for [my creator](t.me/rsrmusic) to get me to where I am now, and every donation helps \
-motivate him to make me even better; [PayPal](paypal.me/rickyzote)."""
+DONATE_STRING = """Ka nun zel theih nan min siamtu [RSR](t.me/rsrmusic) hnen ah hian i phal ang zah i pe ve thei ang; [PayPal](paypal.me/rickyzote)."""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -68,7 +66,7 @@ for module_name in ALL_MODULES:
     if not imported_module.__mod_name__.lower() in IMPORTED:
         IMPORTED[imported_module.__mod_name__.lower()] = imported_module
     else:
-        raise Exception("Can't have two modules with the same name! Please change one")
+        raise Exception("Hming in ang in module a siam theih loh,pakhat zawk zawk thlak rawh")
 
     if hasattr(imported_module, "__help__") and imported_module.__help__:
         HELPABLE[imported_module.__mod_name__.lower()] = imported_module
@@ -139,7 +137,7 @@ def start(bot: Bot, update: Update, args: List[str]):
                 PM_START_TEXT.format(escape_markdown(bot.first_name)), parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup( [[InlineKeyboardButton(text="➕ Add Me to Your Group ➕", url="t.me/{}?startgroup=true".format(bot.username))]]))
                 
     else:
-        update.effective_message.reply_text("waked up😏😏😏")
+        update.effective_message.reply_text("Hnathawk turin ka inpeih e😊")
 
 
 # for test purposes
@@ -181,7 +179,7 @@ def help_button(bot: Bot, update: Update):
     try:
         if mod_match:
             module = mod_match.group(1)
-            text = "Here is the help for the *{}* module:\n".format(HELPABLE[module].__mod_name__) \
+            text = "Hetah hian module *{}* tanpuina:\n".format(HELPABLE[module].__mod_name__) \
                    + HELPABLE[module].__help__
             query.message.reply_text(text=text,
                                      parse_mode=ParseMode.MARKDOWN,
@@ -211,14 +209,14 @@ def help_button(bot: Bot, update: Update):
         bot.answer_callback_query(query.id)
         query.message.delete()
     except BadRequest as excp:
-        if excp.message == "Message is not modified":
+        if excp.message == "Message siam danglam anilo":
             pass
-        elif excp.message == "Query_id_invalid":
+        elif excp.message == "Zawhna id a fello":
             pass
-        elif excp.message == "Message can't be deleted":
+        elif excp.message == "Message delete anilo":
             pass
         else:
-            LOGGER.exception("Exception in help buttons. %s", str(query.data))
+            LOGGER.exception("Help button hmaih. %s", str(query.data))
 
 
 @run_async
@@ -229,7 +227,7 @@ def get_help(bot: Bot, update: Update):
     # ONLY send help in PM
     if chat.type != chat.PRIVATE:
 
-        update.effective_message.reply_text("Contact me in PM to get the list of possible commands.",
+        update.effective_message.reply_text("min rawn private la kaihhruaina ka neih te i khawih thei ang.",
                                             reply_markup=InlineKeyboardMarkup(
                                                 [[InlineKeyboardButton(text="Help",
                                                                        url="t.me/{}?start=help".format(
@@ -238,7 +236,7 @@ def get_help(bot: Bot, update: Update):
 
     elif len(args) >= 2 and any(args[1].lower() == x for x in HELPABLE):
         module = args[1].lower()
-        text = "Here is the available help for the *{}* module:\n".format(HELPABLE[module].__mod_name__) \
+        text = "Hetah hian *{}* module tanpuina a awm:\n".format(HELPABLE[module].__mod_name__) \
                + HELPABLE[module].__help__
         send_help(chat.id, text, InlineKeyboardMarkup([[InlineKeyboardButton(text="Back", callback_data="help_back")]]))
 
@@ -251,7 +249,7 @@ def send_settings(chat_id, user_id, user=False):
         if USER_SETTINGS:
             settings = "\n\n".join(
                 "*{}*:\n{}".format(mod.__mod_name__, mod.__user_settings__(user_id)) for mod in USER_SETTINGS.values())
-            dispatcher.bot.send_message(user_id, "These are your current settings:" + "\n\n" + settings,
+            dispatcher.bot.send_message(user_id, "heihi tun a i setting:" + "\n\n" + settings,
                                         parse_mode=ParseMode.MARKDOWN)
 
         else:
