@@ -79,7 +79,7 @@ def demote(bot: Bot, update: Update, args: List[str]) -> str:
 
     user_member = chat.get_member(user_id)
     if user_member.status == 'creator':
-        message.reply_text("i cant ban creator of the group.... 😬")
+        message.reply_text("ani hi min siamtu ania hremna engmah ka pe thei lo")
         return ""
 
     if not user_member.status == 'administrator':
@@ -217,14 +217,14 @@ def __chat_settings__(chat_id, user_id):
 
 
 __help__ = """
- - /adminlist: list of admins in the chat
+ - /adminlist: Group a admin awm ho en na
 
-*Admin only:*
- - /pin: silently pins the message replied to - add 'loud' or 'notify' to give notifs to users.
- - /unpin: unpins the currently pinned message
- - /invitelink: gets invitelink
- - /promote: promotes the user replied to
- - /demote: demotes the user replied to
+*Admin chauh in an ti thei:*
+ - /pin: Group ah thil pawimawh post te a awm in hemi a reply hian mite tan a en awlsam tur in a indah ang.
+ - /unpin: i thil pin sa kha hemi hmang hian reply la,a in pin tawhlo ang
+ - /invitelink: Group invite link lak nan
+ - /promote: i promote duh chat kha hemi hian reply rawh
+ - /demote: i demote duh kha hei hian reply rawh
 """
 
 __mod_name__ = "Admin"
